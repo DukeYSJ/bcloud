@@ -1,0 +1,8 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/images">
+        <file>bcloud-32.png</file>
+        <file>bcloud-64.png</file>
+        <file>bcloud-128.png</file>
+    </qresource>
+</RCC>
