@@ -25,17 +25,17 @@ WindowController::WindowController(QObject* parent)
 
 WindowController::~WindowController() {
   if (p_->main_window != nullptr) {
-    p_->main_window->deleteLater();
+    delete p_->main_window;
     p_->main_window = nullptr;
   }
 
   if (p_->login_window != nullptr) {
-    p_->login_window->deleteLater();
+    delete p_->login_window;
     p_->login_window = nullptr;
   }
 
   if (p_->user_profiler != nullptr) {
-    p_->user_profiler->deleteLater();
+    delete p_->user_profiler;
     p_->user_profiler = nullptr;
   }
 
@@ -49,7 +49,8 @@ void WindowController::showMainWindow() {
   }
   p_->main_window->show();
 
-  if (p_->user_profiler == nullptr) {
+  if (p_->user_profiler == nullptr ||
+      !p_->user_profiler->isValid()) {
     p_->login_window = new LoginWindow();
     p_->login_window->show();
   }

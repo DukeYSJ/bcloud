@@ -14,6 +14,11 @@ class UserProfile : public QObject {
   Q_OBJECT
  public:
   explicit UserProfile(QObject* parent = nullptr);
+
+  bool isValid() const { return valid_; }
+
+ private:
+  bool valid_ = false;
 };
 
 } // namespace bcloud
