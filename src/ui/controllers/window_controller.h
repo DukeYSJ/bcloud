@@ -7,9 +7,12 @@
 
 #include <QObject>
 
-namespace bcloud {
+#include "services/pcs.h"
+#include "services/user_profile.h"
+#include "ui/frames/main_window.h"
+#include "ui/frames/login_window.h"
 
-struct WindowControllerPrivate;
+namespace bcloud {
 
 // Control application window and notifications.
 class WindowController : public QObject {
@@ -24,7 +27,12 @@ class WindowController : public QObject {
   void showMainWindow();
 
  private:
-  WindowControllerPrivate* p_ = nullptr;
+  MainWindow* main_window_ = nullptr;
+  LoginWindow* login_window_ = nullptr;
+  Pcs* pcs_ = nullptr;
+  UserProfile* user_profiler_ = nullptr;
+
+ private slots:
 };
 
 }  // namespace bcloud

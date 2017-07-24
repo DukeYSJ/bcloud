@@ -21,9 +21,15 @@ set(QT_LIBS
     )
 
 set(BASE_FILES
-    base/const.h)
+    base/const.h
+    base/file_util.cpp
+    base/file_util.h
+    base/json_util.cpp
+    base/json_util.h)
 
 set(SERVICES_FILES
+    services/pcs.cpp
+    services/pcs.h
     services/user_profile.cpp
     services/user_profile.h)
 
@@ -36,8 +42,7 @@ set(UI_FILES
     ui/frames/main_window.cpp
     ui/frames/main_window.h
     ui/frames/login_window.cpp
-    ui/frames/login_window.h ui/images/images_rcc.h)
-
+    ui/frames/login_window.h)
 
 ## Executables
 add_executable(bcloud

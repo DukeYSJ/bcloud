@@ -58,6 +58,11 @@ void Pcs::checkLoginState(const QString& username) {
   }
 }
 
+void Pcs::login(const QString& username, const QString& password) {
+  Q_UNUSED(username);
+  Q_UNUSED(password);
+}
+
 void Pcs::printCookieJar() {
   QNetworkCookieJar* cookie_jar = network_manager_->cookieJar();
   QList<QNetworkCookie> cookies =
@@ -160,6 +165,5 @@ void Pcs::onGetPublicKey() {
 void Pcs::onPostLogin() {
 
 }
-
 
 }  // namespace bcloud

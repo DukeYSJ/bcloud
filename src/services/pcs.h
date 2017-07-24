@@ -2,8 +2,8 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#ifndef BCLOUD_PCS_PASSPORT_H
-#define BCLOUD_PCS_PASSPORT_H
+#ifndef BCLOUD_SERVICES_PCS_PASSPORT_H
+#define BCLOUD_SERVICES_PCS_PASSPORT_H
 
 #include <QObject>
 #include <QNetworkAccessManager>
@@ -22,9 +22,13 @@ class Pcs : public QObject {
   // Emitted after |checkLoginState()| return.
   void onCheckLoginState(bool ok);
 
+  void onLogin();
+
  public slots:
   // Check login state before singing into server.
   void checkLoginState(const QString& username);
+
+  void login(const QString& username, const QString& password);
 
  private:
   void printCookieJar();
@@ -46,4 +50,4 @@ class Pcs : public QObject {
 
 }  // namespace bcloud
 
-#endif  // BCLOUD_PCS_PASSPORT_H
+#endif  // BCLOUD_SERVICES_PCS_PASSPORT_H
