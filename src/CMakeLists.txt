@@ -44,7 +44,6 @@ set(UI_FILES
     ui/frames/access_code_dialog.h
     ui/frames/bt_page.cpp
     ui/frames/bt_page.h
-    ui/frames/category_page.cpp
     ui/frames/category_page.h
     ui/frames/cloud_download_page.cpp
     ui/frames/cloud_download_page.h
@@ -54,6 +53,7 @@ set(UI_FILES
     ui/frames/download_page.h
     ui/frames/file_property_dialog.cpp
     ui/frames/file_property_dialog.h
+    ui/frames/filter_category_page.h
     ui/frames/folder_browser_dialog.cpp
     ui/frames/folder_browser_dialog.h
     ui/frames/folder_property_dialog.cpp
@@ -85,7 +85,11 @@ set(UI_FILES
     ui/frames/verify_code_dialog.cpp
     ui/frames/verify_code_dialog.h
     ui/frames/videos_page.cpp
-    ui/frames/videos_page.h)
+    ui/frames/videos_page.h
+
+    ui/models/category_model.cpp
+    ui/models/category_model.h
+    )
 
 ## Executables
 add_executable(bcloud

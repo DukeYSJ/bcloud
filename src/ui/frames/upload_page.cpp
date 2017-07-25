@@ -10,4 +10,21 @@ UploadPage::UploadPage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("UploadPage");
 }
 
+QString UploadPage::getIconName() const {
+  // TODO(LiuLang):
+  return "";
+}
+
+QString UploadPage::getLocalName() const {
+  return tr("Upload");
+}
+
+QString UploadPage::getName() const {
+  return "Upload";
+}
+
+QString UploadPage::getTooltip() const {
+  return tr("Uploading tasks");
+}
+
 }  // namespace bcloud

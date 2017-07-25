@@ -5,11 +5,14 @@
 #ifndef BCLOUD_UI_FRAMES_VIDEOS_PAGE_H
 #define BCLOUD_UI_FRAMES_VIDEOS_PAGE_H
 
-#include "ui/frames/category_page.h"
+#include <QFrame>
+
+#include "ui/frames/filter_category_page.h"
 
 namespace bcloud {
 
-class VideosPage : public CategoryPage {
+class VideosPage : public QFrame,
+                   public FilterCategoryPage {
   Q_OBJECT
  public:
   explicit VideosPage(QWidget* parent = nullptr);

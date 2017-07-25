@@ -6,7 +6,7 @@
 
 namespace bcloud {
 
-VideosPage::VideosPage(QWidget* parent) : CategoryPage(parent) {
+VideosPage::VideosPage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("VideosPage");
 }
 
@@ -28,7 +28,7 @@ QString VideosPage::getName() const {
 }
 
 QString VideosPage::getTooltip() const {
-  return "Videos";
+  return tr("Videos");
 }
 
 }  // namespace bcloud

@@ -7,13 +7,24 @@
 
 #include <QFrame>
 
+#include "ui/frames/category_page.h"
+
 namespace bcloud {
 
 // Displays upload tasks.
-class UploadPage : public QFrame {
+class UploadPage : public QFrame,
+                   public CategoryPage {
   Q_OBJECT
  public:
   explicit UploadPage(QWidget* parent = nullptr);
+
+  QString getIconName() const override;
+
+  QString getLocalName() const override;
+
+  QString getName() const override;
+
+  QString getTooltip() const override;
 };
 
 }  // namespace bcloud

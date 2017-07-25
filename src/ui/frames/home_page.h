@@ -7,13 +7,24 @@
 
 #include <QFrame>
 
+#include "ui/frames/category_page.h"
+
 namespace bcloud {
 
 // Display files on server side.
-class HomePage : public QFrame {
+class HomePage : public QFrame,
+                 public CategoryPage {
   Q_OBJECT
  public:
   explicit HomePage(QWidget* parent = nullptr);
+
+  QString getIconName() const override;
+
+  QString getLocalName() const override;
+
+  QString getName() const override;
+
+  QString getTooltip() const override;
 };
 
 }  // namespace bcloud

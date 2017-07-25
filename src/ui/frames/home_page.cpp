@@ -10,4 +10,21 @@ HomePage::HomePage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("HomePage");
 }
 
+QString HomePage::getIconName() const {
+  // TODO(LiuLang):
+  return "";
+}
+
+QString HomePage::getLocalName() const {
+  return tr("Home");
+}
+
+QString HomePage::getName() const {
+  return "Home";
+}
+
+QString HomePage::getTooltip() const {
+  return tr("Home");
+}
+
 }  // namespace bcloud

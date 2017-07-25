@@ -10,4 +10,21 @@ TrashPage::TrashPage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("TrashPage");
 }
 
+QString TrashPage::getIconName() const {
+  // TODO(LiuLang):
+  return "";
+}
+
+QString TrashPage::getLocalName() const {
+  return tr("Trash");
+}
+
+QString TrashPage::getName() const {
+  return "Trash";
+}
+
+QString TrashPage::getTooltip() const {
+  return tr("Trash");
+}
+
 }  // namespace bcloud

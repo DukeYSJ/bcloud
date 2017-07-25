@@ -10,4 +10,21 @@ DownloadPage::DownloadPage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("DownloadPage");
 }
 
+QString DownloadPage::getIconName() const {
+  // TODO(LiuLang):
+  return "";
+}
+
+QString DownloadPage::getLocalName() const {
+  return tr("Download");
+}
+
+QString DownloadPage::getName() const {
+  return "Download";
+}
+
+QString DownloadPage::getTooltip() const {
+  return tr("Local downloading tasks");
+}
+
 }  // namespace bcloud

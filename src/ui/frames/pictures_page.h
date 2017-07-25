@@ -5,11 +5,14 @@
 #ifndef BCLOUD_UI_FRAMES_PICTURES_PAGE_H
 #define BCLOUD_UI_FRAMES_PICTURES_PAGE_H
 
-#include "ui/frames/category_page.h"
+#include <QFrame>
+
+#include "ui/frames/filter_category_page.h"
 
 namespace bcloud {
 
-class PicturesPage : public CategoryPage {
+class PicturesPage : public QFrame,
+                     public FilterCategoryPage {
   Q_OBJECT
  public:
   explicit PicturesPage(QWidget* parent = nullptr);

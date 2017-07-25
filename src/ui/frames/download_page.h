@@ -7,13 +7,24 @@
 
 #include <QFrame>
 
+#include "ui/frames/category_page.h"
+
 namespace bcloud {
 
 // Displays download tasks.
-class DownloadPage : public QFrame {
+class DownloadPage : public QFrame,
+                     public CategoryPage {
   Q_OBJECT
  public:
   explicit DownloadPage(QWidget* parent = nullptr);
+
+  QString getIconName() const override;
+
+  QString getLocalName() const override;
+
+  QString getName() const override;
+
+  QString getTooltip() const override;
 };
 
 }  // namespace bcloud

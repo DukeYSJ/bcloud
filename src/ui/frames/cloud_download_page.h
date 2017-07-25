@@ -6,14 +6,24 @@
 #define BCLOUD_UI_FRAMES_CLOUD_DOWNLOAD_PAGE_H
 
 #include <QFrame>
+#include "ui/frames/category_page.h"
 
 namespace bcloud {
 
 // Displays download tasks on server.
-class CloudDownloadPage : public QFrame {
+class CloudDownloadPage : public QFrame,
+                          public CategoryPage {
   Q_OBJECT
  public:
   explicit CloudDownloadPage(QWidget* parent = nullptr);
+
+  QString getIconName() const override;
+
+  QString getLocalName() const override;
+
+  QString getName() const override;
+
+  QString getTooltip() const override;
 };
 
 }  // namespace bcloud

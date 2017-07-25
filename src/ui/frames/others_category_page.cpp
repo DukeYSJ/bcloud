@@ -6,7 +6,7 @@
 
 namespace bcloud {
 
-OthersCategoryPage::OthersCategoryPage(QWidget* parent) : CategoryPage(parent) {
+OthersCategoryPage::OthersCategoryPage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("OthersCategoryPage");
 }
 
@@ -28,7 +28,7 @@ QString OthersCategoryPage::getName() const {
 }
 
 QString OthersCategoryPage::getTooltip() const {
-  return "Others";
+  return tr("Others");
 }
 
 }  // namespace bcloud

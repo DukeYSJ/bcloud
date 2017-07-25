@@ -5,12 +5,15 @@
 #ifndef BCLOUD_UI_FRAMES_BT_PAGE_H
 #define BCLOUD_UI_FRAMES_BT_PAGE_H
 
-#include "ui/frames/category_page.h"
+#include <QFrame>
+
+#include "ui/frames/filter_category_page.h"
 
 namespace bcloud {
 
 // Displays bt torrent files.
-class BtPage : public CategoryPage {
+class BtPage : public QFrame,
+               public FilterCategoryPage {
   Q_OBJECT
  public:
   explicit BtPage(QWidget* parent = nullptr);

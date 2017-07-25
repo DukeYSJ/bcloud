@@ -6,7 +6,7 @@
 
 namespace bcloud {
 
-PicturesPage::PicturesPage(QWidget* parent) : CategoryPage(parent) {
+PicturesPage::PicturesPage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("PicturesPage");
 }
 
@@ -28,7 +28,7 @@ QString PicturesPage::getName() const {
 }
 
 QString PicturesPage::getTooltip() const {
-  return "Pictures";
+  return tr("Pictures");
 }
 
 }  // namespace bcloud

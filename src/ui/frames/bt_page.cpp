@@ -6,7 +6,7 @@
 
 namespace bcloud {
 
-BtPage::BtPage(QWidget* parent) : CategoryPage(parent) {
+BtPage::BtPage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("BtPage");
 }
 

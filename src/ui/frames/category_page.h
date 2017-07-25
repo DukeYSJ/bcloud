@@ -5,20 +5,11 @@
 #ifndef BCLOUD_UI_FRAMES_CATEGORY_PAGE_H
 #define BCLOUD_UI_FRAMES_CATEGORY_PAGE_H
 
-#include <QFrame>
-
 namespace bcloud {
 
 // Abstract class to filter files by category.
-class CategoryPage : public QFrame {
-  Q_OBJECT
+class CategoryPage {
  public:
-  explicit CategoryPage(QWidget* parent = nullptr);
-
- protected:
-  // Returns category id of current page.
-  virtual int getCategory() const = 0;
-
   // Returns category icon path.
   virtual QString getIconName() const = 0;
 

@@ -6,14 +6,24 @@
 #define BCLOUD_UI_FRAMES_TRASH_PAGE_H
 
 #include <QFrame>
+#include "ui/frames/category_page.h"
 
 namespace bcloud {
 
 // Displays files placed in trash.
-class TrashPage : public QFrame {
+class TrashPage : public QFrame,
+                  public CategoryPage {
   Q_OBJECT
  public:
   explicit TrashPage(QWidget* parent = nullptr);
+
+  QString getIconName() const override;
+
+  QString getLocalName() const override;
+
+  QString getName() const override;
+
+  QString getTooltip() const override;
 };
 
 }  // namespace bcloud

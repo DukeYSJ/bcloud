@@ -6,7 +6,7 @@
 
 namespace bcloud {
 
-MusicPage::MusicPage(QWidget* parent) : CategoryPage(parent) {
+MusicPage::MusicPage(QWidget* parent) : QFrame(parent) {
   this->setObjectName("MusicPage");
 }
 
@@ -28,7 +28,7 @@ QString MusicPage::getName() const {
 }
 
 QString MusicPage::getTooltip() const {
-  return "Music";
+  return tr("Music");
 }
 
 }  // namespace bcloud

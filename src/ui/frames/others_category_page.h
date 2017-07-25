@@ -5,12 +5,15 @@
 #ifndef BCLOUD_UI_FRAMES_OTHERS_CATEGORY_PAGE_H
 #define BCLOUD_UI_FRAMES_OTHERS_CATEGORY_PAGE_H
 
-#include "ui/frames/category_page.h"
+#include <QFrame>
+
+#include "ui/frames/filter_category_page.h"
 
 namespace bcloud {
 
 // Display other category of files.
-class OthersCategoryPage : public CategoryPage {
+class OthersCategoryPage : public QFrame,
+                           public FilterCategoryPage {
   Q_OBJECT
  public:
   explicit OthersCategoryPage(QWidget* parent = nullptr);

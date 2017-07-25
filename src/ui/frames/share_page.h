@@ -7,13 +7,24 @@
 
 #include <QFrame>
 
+#include "ui/frames/category_page.h"
+
 namespace bcloud {
 
 // Displays shared files.
-class SharePage : public QFrame {
+class SharePage : public QFrame,
+                  public CategoryPage {
   Q_OBJECT
  public:
   explicit SharePage(QWidget* parent = nullptr);
+
+  QString getIconName() const override;
+
+  QString getLocalName() const override;
+
+  QString getName() const override;
+
+  QString getTooltip() const override;
 };
 
 }  // namespace bcloud
