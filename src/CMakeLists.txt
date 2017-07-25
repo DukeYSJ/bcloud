@@ -42,8 +42,14 @@ set(UI_FILES
 
     ui/frames/access_code_dialog.cpp
     ui/frames/access_code_dialog.h
+    ui/frames/bt_page.cpp
+    ui/frames/bt_page.h
+    ui/frames/category_page.cpp
+    ui/frames/category_page.h
     ui/frames/cloud_download_page.cpp
     ui/frames/cloud_download_page.h
+    ui/frames/documents_page.cpp
+    ui/frames/documents_page.h
     ui/frames/download_page.cpp
     ui/frames/download_page.h
     ui/frames/file_property_dialog.cpp
@@ -58,8 +64,14 @@ set(UI_FILES
     ui/frames/login_dialog.h
     ui/frames/main_window.cpp
     ui/frames/main_window.h
+    ui/frames/music_page.cpp
+    ui/frames/music_page.h
     ui/frames/new_folder_dialog.cpp
     ui/frames/new_folder_dialog.h
+    ui/frames/others_category_page.cpp
+    ui/frames/others_category_page.h
+    ui/frames/pictures_page.cpp
+    ui/frames/pictures_page.h
     ui/frames/settings_page.cpp
     ui/frames/settings_page.h
     ui/frames/share_page.cpp
@@ -72,7 +84,8 @@ set(UI_FILES
     ui/frames/user_avatar.h
     ui/frames/verify_code_dialog.cpp
     ui/frames/verify_code_dialog.h
-    )
+    ui/frames/videos_page.cpp
+    ui/frames/videos_page.h)
 
 ## Executables
 add_executable(bcloud
