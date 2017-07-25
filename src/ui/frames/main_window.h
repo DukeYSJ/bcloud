@@ -6,6 +6,10 @@
 #define BCLOUD_UI_FRAMES_MAIN_WINDOW_H
 
 #include <QFrame>
+#include <QListWidget>
+#include <QStackedLayout>
+
+#include "ui/frames/user_avatar.h"
 
 namespace bcloud {
 
@@ -15,6 +19,14 @@ class MainWindow : public QFrame {
   Q_OBJECT
  public:
   explicit MainWindow(QWidget* parent = nullptr);
+
+ private:
+  void initConnections();
+  void initUI();
+
+  QListWidget* category_list_ = nullptr;
+  UserAvatar* user_avatar_ = nullptr;
+  QStackedLayout* stacked_layout_ = nullptr;
 };
 
 }  // namespace bcloud

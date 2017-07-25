@@ -2,12 +2,12 @@
 // Use of this source is governed by General Public License that can be found
 // in the LICENSE file.
 
-#include "ui/frames/login_window.h"
+#include "ui/frames/login_dialog.h"
 
 namespace bcloud {
 
-LoginWindow::LoginWindow(QWidget* parent) : QFrame(parent) {
-  this->setObjectName("LoginWindow");
+LoginDialog::LoginDialog(QWidget* parent) : QDialog(parent) {
+  this->setObjectName("LoginDialog");
 
   this->setWindowModality(Qt::ApplicationModal);
   this->setWindowTitle(tr("Login Now"));
@@ -16,28 +16,28 @@ LoginWindow::LoginWindow(QWidget* parent) : QFrame(parent) {
   this->initConnections();
 }
 
-bool LoginWindow::getKeepPassword() const {
+bool LoginDialog::getKeepPassword() const {
   return keep_password_box_->isChecked();
 }
 
-void LoginWindow::setKeepPassword(bool keep) {
+void LoginDialog::setKeepPassword(bool keep) {
   keep_password_box_->setChecked(keep);
 }
 
-bool LoginWindow::getAutoLogin() const {
+bool LoginDialog::getAutoLogin() const {
   return auto_login_box_->isChecked();
 }
 
-void LoginWindow::setAutoLogin(bool auto_login) {
+void LoginDialog::setAutoLogin(bool auto_login) {
   auto_login_box_->setChecked(auto_login);
 }
 
-void LoginWindow::initConnections() {
+void LoginDialog::initConnections() {
   connect(login_button_, &QPushButton::clicked,
-          this, &LoginWindow::onLoginButtonClicked);
+          this, &LoginDialog::onLoginButtonClicked);
 }
 
-void LoginWindow::initUI() {
+void LoginDialog::initUI() {
   username_edit_ = new QLineEdit(this);
   username_edit_->setPlaceholderText(tr("Username/email/phone"));
 
@@ -64,7 +64,7 @@ void LoginWindow::initUI() {
   this->setLayout(layout);
 }
 
-void LoginWindow::onLoginButtonClicked() {
+void LoginDialog::onLoginButtonClicked() {
   const QString username(username_edit_->text());
   if (username.isEmpty()) {
     return;

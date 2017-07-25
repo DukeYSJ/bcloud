@@ -13,14 +13,11 @@ WindowController::WindowController(QObject* parent)
 }
 
 WindowController::~WindowController() {
+  // No need to destroy login_dialog_ by hand, as it is managed by main_window_.
+
   if (main_window_ != nullptr) {
     delete main_window_;
     main_window_ = nullptr;
-  }
-
-  if (login_window_ != nullptr) {
-    delete login_window_;
-    login_window_ = nullptr;
   }
 
   if (user_profiler_ != nullptr) {
@@ -38,8 +35,8 @@ void WindowController::showMainWindow() {
 
   if (user_profiler_ == nullptr ||
       !user_profiler_->isValid()) {
-    login_window_ = new LoginWindow();
-    login_window_->show();
+    login_dialog_ = new LoginDialog(main_window_);
+    login_dialog_->show();
   }
 }
 

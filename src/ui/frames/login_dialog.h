@@ -6,7 +6,7 @@
 #define BCLOUD_UI_FRAMES_LOGIN_WINDOW_H
 
 #include <QCheckBox>
-#include <QFrame>
+#include <QDialog>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -14,10 +14,10 @@
 namespace bcloud {
 
 // Displays login form.
-class LoginWindow : public QFrame {
+class LoginDialog : public QDialog {
   Q_OBJECT
  public:
-  explicit LoginWindow(QWidget* parent = nullptr);
+  explicit LoginDialog(QWidget* parent = nullptr);
 
   // Get/set state of keep_password_box_.
   bool getKeepPassword() const;

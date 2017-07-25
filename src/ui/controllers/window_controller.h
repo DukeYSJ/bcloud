@@ -10,7 +10,7 @@
 #include "services/pcs.h"
 #include "services/user_profile.h"
 #include "ui/frames/main_window.h"
-#include "ui/frames/login_window.h"
+#include "ui/frames/login_dialog.h"
 
 namespace bcloud {
 
@@ -23,12 +23,12 @@ class WindowController : public QObject {
 
   // Show main window.
   // Create a new one if needed.
-  // Also show LoginWindow if current user profile is empty.
+  // Also show LoginDialog if current user profile is empty.
   void showMainWindow();
 
  private:
   MainWindow* main_window_ = nullptr;
-  LoginWindow* login_window_ = nullptr;
+  LoginDialog* login_dialog_ = nullptr;
   Pcs* pcs_ = nullptr;
   UserProfile* user_profiler_ = nullptr;
 

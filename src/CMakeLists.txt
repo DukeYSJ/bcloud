@@ -39,10 +39,40 @@ set(UI_FILES
 
     ui/controllers/window_controller.cpp
     ui/controllers/window_controller.h
+
+    ui/frames/access_code_dialog.cpp
+    ui/frames/access_code_dialog.h
+    ui/frames/cloud_download_page.cpp
+    ui/frames/cloud_download_page.h
+    ui/frames/download_page.cpp
+    ui/frames/download_page.h
+    ui/frames/file_property_dialog.cpp
+    ui/frames/file_property_dialog.h
+    ui/frames/folder_browser_dialog.cpp
+    ui/frames/folder_browser_dialog.h
+    ui/frames/folder_property_dialog.cpp
+    ui/frames/folder_property_dialog.h
+    ui/frames/home_page.cpp
+    ui/frames/home_page.h
+    ui/frames/login_dialog.cpp
+    ui/frames/login_dialog.h
     ui/frames/main_window.cpp
     ui/frames/main_window.h
-    ui/frames/login_window.cpp
-    ui/frames/login_window.h)
+    ui/frames/new_folder_dialog.cpp
+    ui/frames/new_folder_dialog.h
+    ui/frames/settings_page.cpp
+    ui/frames/settings_page.h
+    ui/frames/share_page.cpp
+    ui/frames/share_page.h
+    ui/frames/trash_page.cpp
+    ui/frames/trash_page.h
+    ui/frames/upload_page.cpp
+    ui/frames/upload_page.h
+    ui/frames/user_avatar.cpp
+    ui/frames/user_avatar.h
+    ui/frames/verify_code_dialog.cpp
+    ui/frames/verify_code_dialog.h
+    )
 
 ## Executables
 add_executable(bcloud
