@@ -11,12 +11,23 @@
 #include <QNetworkRequest>
 
 #include "base/json_util.h"
+#include "base/string_util.h"
 
 namespace bcloud {
 
 namespace {
 
 const char kPassportUrl[] = "https://passport.baidu.com/v2/api/";
+
+QString GetTimestamp() {
+  // TODO(LiuLang):
+  return "0";
+}
+
+QString GetPpuiLoginTime() {
+  // TODO(LiuLang):
+  return "0";
+}
 
 }  // namespace
 
@@ -59,8 +70,22 @@ void Pcs::checkLoginState(const QString& username) {
 }
 
 void Pcs::login(const QString& username, const QString& password) {
-  Q_UNUSED(username);
-  Q_UNUSED(password);
+  this->login(username, password, "", "");
+}
+
+void Pcs::login(const QString& username,
+                const QString& password,
+                const QString& verify_code,
+                const QString& code_string) {
+  username_ = username;
+  password_ = password;
+  verify_code_ = verify_code;
+  code_string_ = code_string;
+  if (cookie_inited_) {
+
+  } else {
+    this->checkLoginState(username);
+  }
 }
 
 void Pcs::printCookieJar() {
@@ -129,7 +154,7 @@ void Pcs::onCheckLogin() {
   QNetworkReply* reply = qobject_cast<QNetworkReply*>(this->sender());
   const QByteArray body = reply->readAll();
   reply->deleteLater();
-  qDebug() << "reply body:" << body;
+  qDebug() << "onCheckLogin():" << body;
 
   // Get public key.
   const QString url = QString("https://passport.baidu.com/v2/getpublickey"
@@ -146,24 +171,50 @@ void Pcs::onGetPublicKey() {
   QNetworkReply* reply = qobject_cast<QNetworkReply*>(this->sender());
   const QByteArray body = reply->readAll();
   reply->deleteLater();
-  qDebug() << "reply body:" << body;
+  qDebug() << "onGetPublicKey():" << body;
 
-  // Post login.
-  const QString code_string;
+  this->postLogin();
+}
+
+void Pcs::postLogin() {
   QNetworkRequest request;
   request.setUrl(QUrl("https://passport.baidu.com/v2/api/?login"));
+  QStringList items = {
+      "staticpage=https%3A%2F%2Fpassport.baidu.com%2Fstatic%2Fpasspc-account%2Fhtml%2Fv3Jump.html",
+      "&charset=UTF-8",
+      "&token=", token_,
+      "&tpl=pp&subpro=&apiver=v3",
+      "&tt=", GetTimestamp(),
+      "&codestring=", code_string_,
+      "&safeflg=0&u=http%3A%2F%2Fpassport.baidu.com%2F",
+      "&isPhone=",
+      "&quick_user=0&logintype=basicLogin&logLoginType=pc_loginBasic&idc=",
+      "&loginmerge=true",
+      "&username=", EncodeUriComponent(username_),
+      "&password=", EncodeUriComponent(password_),
+      "&verifycode=", verify_code_,
+      "&mem_pass=on",
+      "&rsakey=", rsakey_,
+      "&crypttype=12",
+      "&ppui_logintime=", GetPpuiLoginTime(),
+      "&callback=parent.bd__pcbs__28g1kg",
+
+  };
   const QByteArray data =
       QString("staticpage=https://passport.baidu.com/static/passpc-"
-              "account/html/v3Jump.html&charset=UTF-8&token=%1&tpl=pp&subpro"
-              "&apiver=v3&tt=%2&codestring=%3&safeflg=0&u=https://p")
-      .arg(token_).arg(0).arg(code_string).toLocal8Bit();
+                  "account/html/v3Jump.html&charset=UTF-8&token=%1&tpl=pp&subpro"
+                  "&apiver=v3&tt=%2&codestring=%3&safeflg=0&u=https://p")
+          .arg(token_).arg(0).arg(code_string_).toLocal8Bit();
   QNetworkReply* next_reply = network_manager_->post(request, data);
   connect(next_reply, &QNetworkReply::finished,
           this, &Pcs::onPostLogin);
 }
 
 void Pcs::onPostLogin() {
-
+  QNetworkReply* reply = qobject_cast<QNetworkReply*>(this->sender());
+  const QByteArray body = reply->readAll();
+  reply->deleteLater();
+  qDebug() << "onPostLogin():" << body;
 }
 
 }  // namespace bcloud

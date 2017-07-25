@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
-project(bcloud CXX)
+project(bcloud CXX C)
 
 # Only generate Debug and Release configuration types.
 set(CMAKE_CONFIGURATION_TYPES Debug Release)

@@ -13,19 +13,23 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(QT_CORE_LIBS Qt5::Core)
 set(QT_LIBS
+    Qt5::Core
     Qt5::Gui
     Qt5::Network
     Qt5::Widgets
     Qt5::X11Extras
-    Qt5::Xml
-    )
+    Qt5::Xml)
+
+add_subdirectory(third_party/gtest)
 
 set(BASE_FILES
     base/const.h
     base/file_util.cpp
     base/file_util.h
     base/json_util.cpp
-    base/json_util.h)
+    base/json_util.h
+    base/string_util.cpp
+    base/string_util.h)
 
 set(SERVICES_FILES
     services/pcs.cpp
@@ -88,8 +92,12 @@ set(UI_FILES
     ui/frames/videos_page.h
 
     ui/models/category_model.cpp
-    ui/models/category_model.h
-    )
+    ui/models/category_model.h)
+
+set(UNITTEST_FILES
+    base/file_util_test.cpp
+    base/json_util_test.cpp
+    base/string_util_test.cpp)
 
 ## Executables
 add_executable(bcloud
@@ -98,3 +106,13 @@ add_executable(bcloud
                ${SERVICES_FILES}
                ${UI_FILES})
 target_link_libraries(bcloud ${QT_LIBS})
+
+
+# Unittest
+add_executable(unittest-main
+               app/unittest_main.cpp
+               ${BASE_FILES}
+               ${UNITTEST_FILES})
+target_link_libraries(unittest-main
+                      ${QT_CORE_LIBS}
+                      gtest)

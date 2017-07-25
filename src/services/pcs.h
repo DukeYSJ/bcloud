@@ -29,13 +29,21 @@ class Pcs : public QObject {
   void checkLoginState(const QString& username);
 
   void login(const QString& username, const QString& password);
+  void login(const QString& username,
+             const QString& password,
+             const QString& verify_code,
+             const QString& code_string);
 
  private:
   void printCookieJar();
+  void postLogin();
 
   QNetworkAccessManager* network_manager_ = nullptr;
   bool cookie_inited_ = false;
   QString username_;
+  QString password_;
+  QString verify_code_;
+  QString code_string_;
   QString token_;
   QString rsakey_;
 
