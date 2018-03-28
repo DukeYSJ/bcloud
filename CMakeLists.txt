@@ -31,5 +31,6 @@ else()
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -O2 -Wl,-O1 -Wl,--gc-sections -Wno-unused-result")
 endif()
 
-#add_subdirectory(resources)
 add_subdirectory(native)
+add_subdirectory(pcs)
+add_subdirectory(resources)

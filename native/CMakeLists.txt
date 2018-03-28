@@ -3,7 +3,6 @@ find_package(Qt5Core REQUIRED)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Network REQUIRED)
 find_package(Qt5Widgets REQUIRED)
-find_package(Qt5X11Extras REQUIRED)
 find_package(Qt5Xml REQUIRED)
 find_package(Qt5LinguistTools)
 
@@ -17,7 +16,6 @@ set(QT_LIBS
     Qt5::Gui
     Qt5::Network
     Qt5::Widgets
-    Qt5::X11Extras
     Qt5::Xml)
 
 add_subdirectory(third_party/gtest)
@@ -29,13 +27,15 @@ set(BASE_FILES
     base/json_util.cpp
     base/json_util.h
     base/string_util.cpp
-    base/string_util.h)
+    base/string_util.h
+    )
 
 set(SERVICES_FILES
     services/pcs.cpp
     services/pcs.h
     services/user_profile.cpp
-    services/user_profile.h)
+    services/user_profile.h
+    )
 
 set(UI_FILES
     ui/images/images.qrc
@@ -92,19 +92,22 @@ set(UI_FILES
     ui/frames/videos_page.h
 
     ui/models/category_model.cpp
-    ui/models/category_model.h)
+    ui/models/category_model.h
+    )
 
 set(UNITTEST_FILES
     base/file_util_test.cpp
     base/json_util_test.cpp
-    base/string_util_test.cpp)
+    base/string_util_test.cpp
+    )
 
 ## Executables
 add_executable(bcloud
                app/bcloud.cpp
                ${BASE_FILES}
                ${SERVICES_FILES}
-               ${UI_FILES})
+               ${UI_FILES}
+               )
 target_link_libraries(bcloud ${QT_LIBS})
 
 
@@ -112,7 +115,9 @@ target_link_libraries(bcloud ${QT_LIBS})
 add_executable(unittest-main
                app/unittest_main.cpp
                ${BASE_FILES}
-               ${UNITTEST_FILES})
+               ${UNITTEST_FILES}
+               )
 target_link_libraries(unittest-main
                       ${QT_CORE_LIBS}
-                      gtest)
+                      gtest
+                      )
