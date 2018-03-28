@@ -32,4 +32,4 @@ else()
 endif()
 
 #add_subdirectory(resources)
-add_subdirectory(src)
+add_subdirectory(native)
